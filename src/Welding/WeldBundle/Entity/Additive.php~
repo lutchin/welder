@@ -1,0 +1,64 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="additive")
+ */
+class Additive
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $additive;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set additive
+     *
+     * @param integer $additive
+     * @return Additive
+     */
+    public function setAdditive($additive)
+    {
+        $this->additive = $additive;
+
+        return $this;
+    }
+
+    /**
+     * Get additive
+     *
+     * @return integer
+     */
+    public function getAdditive()
+    {
+        return $this->additive;
+    }
+
+
+
+
+
+
+}

@@ -1,0 +1,40 @@
+{% extends 'WeldingWeldBundle::layout.html.twig' %}
+
+{% block title %}Статьи о сварке{% endblock%}
+
+{% block body %}
+    {% for article in articles_footer %}
+        {% if article.id%2!=0 %}
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7">
+
+                    <h2 class="featurette-heading"><a href="{{ path('WeldingWeldBundle_articles_show', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+                    <p class="lead">{{ article.article(1050)}}...</p>
+                </div>
+
+                <div class="col-md-5">
+                    <img class="img-thumbnail featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="{{ asset(['images/', article.image]|join) }}" alt="Generic placeholder image">
+                </div>
+            </div>
+        {% else %}
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="img-thumbnail featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="{{ asset(['images/', article.image]|join) }}" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-7">
+
+                    <h2 class="featurette-heading"><a href="{{ path('WeldingWeldBundle_articles_show', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+                    <p class="lead">{{ article.article(1050)}}...</p>
+                </div>
+
+
+            </div>
+        {% endif %}
+    {% else %}
+        <p>Подходящих статей не найдено</p>
+    {% endfor %}
+{% endblock %}

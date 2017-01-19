@@ -1,0 +1,64 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="wolfram")
+ */
+class Wolfram
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $size;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set size
+     *
+     * @param integer $size
+     * @return Wolfram
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return integer
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+
+
+
+
+
+}

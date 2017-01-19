@@ -1,0 +1,63 @@
+{% extends 'WeldingWeldBundle::layout.html.twig' %}
+
+{% block body %}
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-lg-4">
+
+                <div class="date"><time datetime="{{ article.created|date('c') }}">{{ article.created|date('l, F j, Y') }}</time></div>
+                    <img class="img-circle" src="{{ asset(['images/', article.image]|join) }}" alt="Generic placeholder image" width="140" height="140"/>
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.article(1000)}}</p>
+                    <p><a class="btn btn-default" href="{{ path('WeldingWeldBundle_articles_show', { 'id': article.id }) }}" role="button">Узнать подробнее &raquo;</a></p>
+
+
+                <footer class="meta">
+                    <p>Comments: -</p>
+                    <p>Posted by <span class="highlight">{{article.author}}</span> at {{ article.created|date('h:iA') }}</p>
+                    <p>Tags: <span class="highlight">{{ article.tags }}</span></p>
+                </footer>
+        </div>
+                {% else %}
+                    <p>Подходящих статей не найдено</p>
+                {% endfor %}
+
+    </div><!-- /.row -->
+
+    {% for article in articles_footer %}
+        {% if article.id%2!=0 %}
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+
+            <h2 class="featurette-heading"><a href="{{ path('WeldingWeldBundle_articles_show', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+            <p class="lead">{{ article.article(1050)}}...</p>
+        </div>
+
+        <div class="col-md-5">
+            <img class="img-thumbnail featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="{{ asset(['images/', article.image]|join) }}" alt="Generic placeholder image">
+        </div>
+    </div>
+        {% else %}
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="img-thumbnail featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="{{ asset(['images/', article.image]|join) }}" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-7">
+
+                    <h2 class="featurette-heading"><a href="{{ path('WeldingWeldBundle_articles_show', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+                    <p class="lead">{{ article.article(1050)}}...</p>
+                </div>
+
+
+            </div>
+        {% endif %}
+    {% else %}
+        <p>Подходящих статей не найдено</p>
+    {% endfor %}
+
+{% endblock %}

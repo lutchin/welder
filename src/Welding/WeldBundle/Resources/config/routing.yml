@@ -1,0 +1,53 @@
+WeldingWeldBundle_homepage:
+    path:     /
+    defaults: { _controller: "WeldingWeldBundle:Page:index" }
+    requirements:
+         methods:  GET
+WeldingWeldBundle_about:
+    path:   /about
+    defaults: { _controller: "WeldingWeldBundle:Page:about" }
+    requirements:
+         methods:  GET
+
+WeldingWeldBundle_contact:
+    path:   /contact
+    defaults: { _controller: "WeldingWeldBundle:Page:contact" }
+    requirements:
+         methods:  GET|POST
+
+WeldingWeldBundle_steel:
+    path:   /steel
+    defaults: { _controller: "WeldingWeldBundle:Page:steel" }
+    requirements:
+         methods:  GET
+
+WeldingWeldBundle_titanium:
+    path:   /titanium
+    defaults: { _controller: "WeldingWeldBundle:Page:titanium" }
+    requirements:
+         methods:  GET
+
+WeldingWeldBundle_aluminium:
+    path:   /aluminium
+    defaults: { _controller: "WeldingWeldBundle:Page:aluminium" }
+    requirements:
+         methods:  GET
+
+WeldingWeldBundle_cuprum:
+    path:   /cuprum
+    defaults: { _controller: "WeldingWeldBundle:Page:cooper" }
+    requirements:
+         methods:  GET
+
+WeldingWeldBundle_articles_show:
+    path:  /{id}
+    defaults: { _controller: "WeldingWeldBundle:Articles:show" }
+    requirements:
+        methods:  GET
+        id: \d+
+
+WeldingWeldBundle_weld_create:
+    path:  /{materialId}/{depthId}/{weldId}
+    defaults: { _controller: "WeldingWeldBundle:Welder:titanium" }
+    requirements:
+        methods:  POST

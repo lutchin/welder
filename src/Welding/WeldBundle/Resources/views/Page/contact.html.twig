@@ -1,0 +1,36 @@
+{% extends 'WeldingWeldBundle::layout.html.twig' %}
+
+{% block title %}Контакты{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Контакты:</h1>
+    </header>
+    {% for flashMessage in app.session.flashbag.get('welding-notice') %}
+        <div class="welding-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="well span4 offset4">
+            {{ form_start(form, { 'action': path('WeldingWeldBundle_contact'), 'method': 'POST' }) }}
+            {{ form_errors(form) }}
+
+            {{ form_row(form.name,{ 'attr':{'class': 'span4'} }) }}
+            {{ form_row(form.email,{ 'attr':{'class': 'span4'} }) }}
+            {{ form_row(form.subject,{ 'attr':{'class': 'span4'} }) }}
+            {{ form_row(form.body, { 'attr':{'class': 'span4'} }) }}
+
+            {{ form_rest(form) }}
+
+            <button type="submit" value="Submit" class="btn btn-lg btn-primary" >Отправить</button>
+        </div>
+    </div>
+    <div class="row">
+        <p>Skype: pavel.luchanok</p>
+    </div>
+</div>
+
+
+{% endblock %}

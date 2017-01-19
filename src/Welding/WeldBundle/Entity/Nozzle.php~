@@ -1,0 +1,64 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="nozzle")
+ */
+class Nozzle
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $nozzle;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nozzle
+     *
+     * @param integer $nozzle
+     * @return Nozzle
+     */
+    public function setNozzle($nozzle)
+    {
+        $this->nozzle = $nozzle;
+
+        return $this;
+    }
+
+    /**
+     * Get nozzle
+     *
+     * @return integer
+     */
+    public function getNozzle()
+    {
+        return $this->nozzle;
+    }
+
+
+
+
+
+
+}

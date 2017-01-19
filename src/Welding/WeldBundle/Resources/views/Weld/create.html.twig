@@ -1,0 +1,45 @@
+{% extends 'WeldingWeldBundle::layout.html.twig' %}
+
+{% block title %}Режимы сварки{% endblock%}
+
+{% block body %}
+    <div class="row">
+
+        <div class="col-lg-10" align="centre"><h1>Результат расчета параметров сварки приведен ниже:</h1></div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-10" align="centre"><h2></h2></div>
+
+    </div>
+
+
+    {% for titanium in titans %}
+        <div class="row">
+
+        <div class="col-lg-10">
+            <p> Для сварки {{ titanium.materialId.type }} толщиной {{ titanium.depthId.size }} мм при {% if  titanium.weldId.type == 1 %}  стыковом без разделок кромок {% elseif  titanium.weldId.type == 2 %}стыковом одностороннем с V-образной разделкой кромок{% elseif  titanium.weldId.type == 3 %}стыковом двустороннем с Х-образной разделкой кромок{% elseif  titanium.weldId.type == 4 %}нахлесточном{% elseif  titanium.weldId.type == 6 %}угловом{% elseif  titanium.weldId.type == 7 %}угловом{% elseif  titanium.weldId.type == 8 %}угловом{% elseif  titanium.weldId.type == 9 %}угловом{% else %}тавровом{% endif %} соединении следует использовать следующие параметры:</p>
+        <ul>
+            <li>Ток сварки - {{ titanium.currentId.value }} Ампер</li>
+            <li>Диаметр газового сопла - {{ titanium.nozzleId.nozzle }} мм</li>
+            <li>Диаметр вольфрамового электрода - {{ titanium.wolframId.size }} мм</li>
+            <li>Расход защинтного газа - {{ titanium.gasId.consumption }} л/мин</li>
+            <li>Давление защинтного газа - {{ titanium.gasId.power }} MPa</li>
+            <li>Скорость сварки - {% if titanium.gasId.value!=0 %}{{ titanium.gasId.value }} м/мин{% else %}Cкорость многослойной сварки не может быть точно определена{% endif %}</li>
+        </ul>
+        <h2>Советы</h2>
+            <p>{{ titanium.adviceId.advice }}</p>
+            <p>{{ titanium.additiveId.additive }}</p>
+        </div>
+
+    {% else %}
+        <p>Для введенных вами параметров нет данных</p>
+        <a href="{{ path('WeldingWeldBundle_homepage') }}">Попробуйте ввести данные еще раз!</a>
+        {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}

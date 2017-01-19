@@ -1,0 +1,116 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="gas")
+ */
+class Gas
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $value;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $power;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $consumption;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $value
+     * @return Gas
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Gas
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        return $this->power;
+    }
+
+    /**
+     * Set consumption
+     *
+     * @param integer $consumption
+     * @return Gas
+     */
+    public function setConsumption($consumption)
+    {
+        $this->consumption = $consumption;
+
+        return $this;
+    }
+
+    /**
+     * Get consumption
+     *
+     * @return integer
+     */
+    public function getConsumption()
+    {
+        return $this->consumption;
+    }
+
+
+}

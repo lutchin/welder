@@ -1,0 +1,4 @@
+welding_weld:
+    resource: "@WeldingWeldBundle/Resources/config/routing.yml"
+    prefix:   /
+

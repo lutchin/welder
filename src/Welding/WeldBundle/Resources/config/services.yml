@@ -1,0 +1,4 @@
+services:
+#    welding_weld.example:
+#        class: Welding\WeldBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

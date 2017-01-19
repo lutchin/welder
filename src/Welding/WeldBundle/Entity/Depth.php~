@@ -1,0 +1,64 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="depth")
+ */
+class Depth
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $size;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set depth
+     *
+     * @param integer $depth
+     * @return Depth
+     */
+    public function setDepth($depth)
+    {
+        $this->depth = $depth;
+
+        return $this;
+    }
+
+    /**
+     * Get depth
+     *
+     * @return integer
+     */
+    public function getDepth()
+    {
+        return $this->depth;
+    }
+
+
+
+
+
+
+}

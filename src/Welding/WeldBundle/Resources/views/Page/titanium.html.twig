@@ -1,0 +1,20 @@
+{% extends 'WeldingWeldBundle::layout.html.twig' %}
+
+{% block title %}Сварка титана{% endblock%}
+
+{% block body %}
+    <div class="row">
+
+        <div class="col-lg-10" align="centre"><h2>Для рассчета параметров введите значения в форму ниже:</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+
+            {% include 'WeldingWeldBundle:Weld:form.html.twig'  %}
+
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+{% endblock %}

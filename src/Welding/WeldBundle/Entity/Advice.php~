@@ -1,0 +1,89 @@
+<?php
+namespace Welding\WeldBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="advice")
+ */
+class Advice
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $advice;
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $note;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set advice
+     *
+     * @param string $advice
+     * @return Advice
+     */
+    public function setAdditive($advice)
+    {
+        $this->advice = $advice;
+
+        return $this;
+    }
+
+    /**
+     * Get advice
+     *
+     * @return string
+     */
+    public function getAdvice()
+    {
+        return $this->advice;
+    }
+
+
+    /**
+     * Set note
+     *
+     * @param string $note
+     * @return Advice
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+
+
+}
